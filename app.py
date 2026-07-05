@@ -111,7 +111,7 @@ from flask import send_from_directory
 
 @app.route("/google4e8ece12ad60ea32.html")
 def google_verification():
-    return send_from_directory("static", "/google4e8ece12ad60ea32.html")
+    return send_from_directory("static", "google4e8ece12ad60ea32.html")
 
 # =========================
 # Jalankan Server
