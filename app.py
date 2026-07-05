@@ -46,6 +46,32 @@ data = {
     ]
     
 }
+galeri = [
+    {
+        "gambar": "galeri1.jpg",
+        "judul": "Pendakian Gunung"
+    },
+    {
+        "gambar": "galeri2.jpg",
+        "judul": "Camping"
+    },
+    {
+        "gambar": "galeri3.jpg",
+        "judul": "Bakti Sosial"
+    },
+    {
+        "gambar": "galeri4.jpg",
+        "judul": "Go Clean"
+    },
+    {
+        "gambar": "galeri5.jpg",
+        "judul": "Penghijauan"
+    },
+    {
+        "gambar": "galeri6.jpg",
+        "judul": "Pelatihan Survival"
+    }
+]
 
 
 # =========================
@@ -53,8 +79,11 @@ data = {
 # =========================
 @app.route("/")
 def home():
-    return render_template("index.html", data=data)
-
+    return render_template(
+        "index.html",
+        data=data,
+        galeri=galeri
+    )
 
 @app.route("/sejarah")
 def sejarah():
@@ -64,8 +93,11 @@ def sejarah():
 # Halaman Galeri
 # =========================
 @app.route("/galeri")
-def galeri():
-    return render_template("galeri.html")
+def galeri_page():
+    return render_template(
+        "galeri.html",
+        galeri=galeri
+    )
 
 
 # =========================

@@ -4,103 +4,56 @@
 
 <h2 class="page-title">Galeri Kegiatan AULITA</h2>
 
-<section class="section">
-
-    <p style="text-align:center; margin-bottom:20px; color:#555;">
-        Dokumentasi kegiatan organisasi AULITA dalam menjaga alam dan membangun kebersamaan.
-    </p>
-
-    <div class="gallery-grid">
-
-        <!-- FOTO 1 -->
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
-            <div class="caption">Pendakian Gunung</div>
-        </div>
-
-        <!-- FOTO 2 -->
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
-            <div class="caption">Camping Bersama</div>
-        </div>
-
-        <!-- FOTO 3 -->
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
-            <div class="caption">Bakti Sosial</div>
-        </div>
-
-        <!-- FOTO 4 -->
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
-            <div class="caption">Penghijauan</div>
-        </div>
-
-        <!-- FOTO 5 -->
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
-            <div class="caption">Pelatihan Survival</div>
-        </div>
-
-        <!-- FOTO 6 -->
-        <div class="gallery-item">
-            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
-            <div class="caption">Navigasi Darat</div>
-        </div>
-
-    </div>
-
-</section>
 <!-- GALERI -->
 <section id="galeri" class="py-5 bg-light">
 
-     <p style="text-align:center; margin-bottom:20px; color:#555;">
-        Dokumentasi kegiatan organisasi AULITA dalam menjaga alam dan membangun kebersamaan.
-    </p>
-    
-<div class="container">
+    <div class="container">
 
-<div class="text-center mb-5">
+        <!-- Judul -->
+        <div class="text-center mb-5">
 
-<h2 class="fw-bold">
+            <h2 class="fw-bold">
+                <i class="bi bi-images text-success"></i>
+                Galeri
+            </h2>
 
-<i class="bi bi-images text-success"></i>
+            <p class="text-muted mx-auto" style="max-width:700px;">
+                Dokumentasi kegiatan organisasi AULITA dalam menjaga kelestarian
+                alam, mempererat ukhuwah, serta membentuk karakter kepemimpinan.
+            </p>
 
-Galeri
+        </div>
 
-</h2>
+        <div class="row g-4">
 
-</div>
+            {% for foto in galeri %}
 
-<div class="row g-4">
+            <div class="col-lg-4 col-md-6">
 
-{% for i in range(1,7) %}
+                <div class="card border-0 shadow-sm rounded-4 h-100">
 
-<div class="col-lg-4 col-md-6">
+                    <img src="{{ url_for('static', filename='images/' + foto.gambar) }}"
+                         class="card-img-top"
+                         alt="{{ foto.judul }}"
+                         style="height:250px; object-fit:cover;">
 
-<div class="card shadow border-0 rounded-4">
+                    <div class="card-body text-center">
 
-<img src="{{ url_for('static', filename='images/avatar.png') }}"
-class="card-img-top"
-alt="Galeri">
+                        <h5 class="fw-semibold">
+                            {{ foto.judul }}
+                        </h5>
 
-<div class="card-body text-center">
+                    </div>
 
-<p class="mb-0">
-Dokumentasi  {{ i }}
-</p>
+                </div>
 
-</div>
+            </div>
 
-</div>
+            {% endfor %}
 
-</div>
+        </div>
 
-{% endfor %}
-
-</div>
-
-</div>
+    </div>
 
 </section>
 

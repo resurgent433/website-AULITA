@@ -452,3 +452,16 @@ footer {
     50% { transform: translateY(-15px); }
     100% { transform: translateY(0); }
 }
+.card-img-top{
+    height:250px;
+    object-fit:cover;
+    transition:.4s;
+}
+
+.card:hover .card-img-top{
+    transform:scale(1.08);
+}
+
+.card{
+    overflow:hidden;
+}
