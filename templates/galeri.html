@@ -32,7 +32,7 @@
 
                 <div class="card border-0 shadow-sm rounded-4 h-100">
 
-                    <img src="{{ url_for('static', filename='images/' + foto.gambar) }}"
+                    <img src="{{ url_for('static', filename='images/' ~  foto.gambar) }}"
                          class="card-img-top"
                          alt="{{ foto.judul }}"
                          style="height:250px; object-fit:cover;">
