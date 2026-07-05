@@ -7,7 +7,7 @@ app = Flask(__name__)
 # Data Organisasi AULITA
 # =========================
 data = {
-    "nama": "AULITA",
+    "nama": "Aulita",
     "kepanjangan": "Aulad Like To Tadabbur Alam",
 
     "visi": "Menjadi organisasi santri pecinta alam yang berakhlak mulia, peduli terhadap lingkungan, serta mampu menjaga kelestarian alam sebagai bentuk ibadah kepada Allah SWT.",
@@ -107,6 +107,11 @@ def galeri_page():
 def anggota():
     return render_template("anggota.html")
 
+from flask import send_from_directory
+
+@app.route("/google4e8ece12ad60ea32.html")
+def google_verification():
+    return send_from_directory("static", "/google4e8ece12ad60ea32.html")
 
 # =========================
 # Jalankan Server
