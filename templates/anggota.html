@@ -2,60 +2,112 @@
 
 {% block content %}
 
-<h2 class="page-title">Struktur Anggota AULITA</h2>
+<div class="container pt-5 mt-4">
+    <nav aria-label="breadcrumb">
+        <ol class="breadcrumb mb-0">
+            <li class="breadcrumb-item">
+                <a href="/" class="text-success text-decoration-none">Beranda</a>
+            </li>
+            <li class="breadcrumb-item active" aria-current="page">Struktur Anggota</li>
+        </ol>
+    </nav>
+</div>
 
-<section class="section">
+<section id="anggota" class="py-5">
+    <div class="container">
 
-    <p style="text-align:center; color:#555; margin-bottom:20px;">
-        Berikut adalah struktur anggota organisasi AULITA yang berperan dalam kegiatan pecinta alam dan sosial.
-    </p>
-
-    <div class="anggota-grid">
-
-        <!-- KETUA -->
-        <div class="anggota-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}">
-            <h3>Nama Ketua</h3>
-            <p class="jabatan">Ketua Umum</p>
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-success text-uppercase fw-bold mb-2 d-block small tracking-wider">Manajemen Organisasi</span>
+            <h2 class="fw-bold display-5 text-dark">
+                <i class="bi bi-people-fill text-success me-2"></i> Struktur Anggota AULITA
+            </h2>
+            <p class="text-muted mx-auto fs-5 mt-3" style="max-width:750px; line-height: 1.7;">
+                Berikut adalah struktur anggota organisasi AULITA yang berperan aktif dalam memimpin, mengelola kegiatan pecinta alam, serta mengabdi pada aksi sosial.
+            </p>
         </div>
 
-        <!-- WAKIL -->
-        <div class="anggota-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}">
-            <h3>Nama Wakil</h3>
-            <p class="jabatan">Wakil Ketua</p>
-        </div>
+        <div class="row g-4 justify-content-center">
 
-        <!-- SEKRETARIS -->
-        <div class="anggota-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}">
-            <h3>Nama Sekretaris</h3>
-            <p class="jabatan">Sekretaris</p>
-        </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card border-0 shadow-sm rounded-4 h-100 hover-top bg-white text-center p-4">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}" 
+                             alt="Ketua Umum" 
+                             class="rounded-circle img-fluid shadow-sm border border-3 border-success-subtle" 
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Nama Ketua</h5>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 small fw-semibold">Ketua Umum</span>
+                </div>
+            </div>
 
-        <!-- BENDAHARA -->
-        <div class="anggota-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}">
-            <h3>Nama Bendahara</h3>
-            <p class="jabatan">Bendahara</p>
-        </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card border-0 shadow-sm rounded-4 h-100 hover-top bg-white text-center p-4">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}" 
+                             alt="Wakil Ketua" 
+                             class="rounded-circle img-fluid shadow-sm border border-3 border-success-subtle" 
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Nama Wakil</h5>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 small fw-semibold">Wakil Ketua</span>
+                </div>
+            </div>
 
-        <!-- ANGGOTA LAIN -->
-        <div class="anggota-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}">
-            <h3>Anggota 1</h3>
-            <p class="jabatan">Anggota</p>
-        </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="card border-0 shadow-sm rounded-4 h-100 hover-top bg-white text-center p-4">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}" 
+                             alt="Sekretaris" 
+                             class="rounded-circle img-fluid shadow-sm border border-3 border-success-subtle" 
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Nama Sekretaris</h5>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 small fw-semibold">Sekretaris</span>
+                </div>
+            </div>
 
-        <div class="anggota-card">
-            <img src="{{ url_for('static', filename='images/avatar.png') }}">
-            <h3>Anggota 2</h3>
-            <p class="jabatan">Anggota</p>
-        </div>
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="card border-0 shadow-sm rounded-4 h-100 hover-top bg-white text-center p-4">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}" 
+                             alt="Bendahara" 
+                             class="rounded-circle img-fluid shadow-sm border border-3 border-success-subtle" 
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Nama Bendahara</h5>
+                    <span class="badge bg-success-subtle text-success rounded-pill px-3 py-2 small fw-semibold">Bendahara</span>
+                </div>
+            </div>
 
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="500">
+                <div class="card border-0 shadow-sm rounded-4 h-100 hover-top bg-white text-center p-4">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}" 
+                             alt="Anggota 1" 
+                             class="rounded-circle img-fluid shadow-sm border border-3 border-light-subtle" 
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Anggota 1</h5>
+                    <span class="badge bg-light text-secondary rounded-pill px-3 py-2 small fw-medium">Anggota</span>
+                </div>
+            </div>
+
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="fade-up" data-aos-delay="600">
+                <div class="card border-0 shadow-sm rounded-4 h-100 hover-top bg-white text-center p-4">
+                    <div class="mb-3">
+                        <img src="{{ url_for('static', filename='images/avatar.png') }}" 
+                             alt="Anggota 2" 
+                             class="rounded-circle img-fluid shadow-sm border border-3 border-light-subtle" 
+                             style="width: 100px; height: 100px; object-fit: cover;">
+                    </div>
+                    <h5 class="fw-bold text-dark mb-1">Anggota 2</h5>
+                    <span class="badge bg-light text-secondary rounded-pill px-3 py-2 small fw-medium">Anggota</span>
+                </div>
+            </div>
+
+        </div>
     </div>
-
 </section>
-
 
 {% endblock %}

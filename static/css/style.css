@@ -1,270 +1,154 @@
-
-/* =========================
-   DESIGN SYSTEM VARIABLES
-========================= */
+/* ==============================================================================
+   DESIGN SYSTEM VARIABLES (Premium Nature Theme)
+   ========================================================================== */
 :root {
-    --primary: #2ecc71;
-    --primary-dark: #1b5e20;
-    --primary-soft: #a5d6a7;
+    --primary: #1b4d22;       /* Hijau Hutan Teduh */
+    --primary-light: #2ecc71; /* Hijau Daun Muda */
+    --primary-dark: #0f2413;  /* Hijau Gelap Kedalaman */
+    --primary-soft: #a3cfbb;  /* Hijau Mint Halus */
 
-    --bg: #eef6ef;
+    --bg: #f4f7f5;
     --card: #ffffff;
-    --text: #1b1b1b;
-    --muted: #666;
+    --text: #212529;
+    --muted: #6c757d;
 
-    --dark-bg: #121212;
-    --dark-card: #1e1e1e;
-    --dark-text: #e0e0e0;
+    --dark-bg: #121914;
+    --dark-card: #1c241e;
+    --dark-text: #e2e8f0;
 
-    --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
-    --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+    --shadow-sm: 0 4px 12px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 12px 30px rgba(0, 0, 0, 0.08);
+    --radius-md: 16px;
 
-    --radius-sm: 10px;
-    --radius-md: 15px;
-    --radius-lg: 20px;
-
-    --transition: 0.3s ease;
+    --transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
-/* =========================
-   BASE RESET
-========================= */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
-}
-
+/* ==============================================================================
+   BASE RESET & UTILITIES
+   ========================================================================== */
 html {
     scroll-behavior: smooth;
 }
 
 body {
-    background: var(--bg);
+    background-color: var(--bg);
     color: var(--text);
+    font-family: 'Poppins', sans-serif;
     transition: var(--transition);
 }
 
-/* =========================
-   NAVBAR
-========================= */
-/* .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    padding: 12px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(27, 94, 32, 0.95);
-    backdrop-filter: blur(8px);
-    z-index: 1000;
-    transition: 0.4s;
-} */
-
-.navbar.scrolled {
-    box-shadow: var(--shadow-md);
+hr {
+    opacity: 0.15;
 }
 
-.navbar ul {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-}
-
-.navbar ul li a {
-    color: white;
-    text-decoration: none;
-    position: relative;
+/* ==============================================================================
+   NAVBAR INTEGRATION (Aman & Tidak Menabrak Struktur Bootstrap)
+   ========================================================================== */
+.navbar {
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
     transition: var(--transition);
 }
 
-.navbar ul li a:hover,
-.navbar ul li a.active {
-    color: var(--primary-soft);
-}
-
-.navbar ul li a::after {
-    content: "";
-    position: absolute;
-    bottom: -4px;
-    left: 0;
-    width: 0;
-    height: 2px;
-    background: var(--primary-soft);
-    transition: var(--transition);
-}
-
-.navbar ul li a:hover::after,
-.navbar ul li a.active::after {
-    width: 100%;
-}
-
-/* =========================
-   HERO
-========================= */
-/* .hero-section {
-    height: 100vh;
-    background: url("/static/images/alam.jpg") center/cover no-repeat;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-} */
-
-.overlay {
-    position: absolute;
-    inset: 0;
-    background: rgba(0,0,0,0.55);
-}
-
-.hero-content {
-    position: relative;
-    z-index: 2;
-    animation: fadeUp 1s ease;
-}
-
-@keyframes fadeUp {
-    from {
-        opacity: 0;
-        transform: translateY(30px);
+/* Efek Garis Bawah Menu: Hanya Aktif di Laptop/Tablet (Layar Besar) */
+@media (min-width: 992px) {
+    .navbar-dark .navbar-nav .nav-link {
+        position: relative;
+        font-size: 0.95rem;
     }
-    to {
-        opacity: 1;
-        transform: translateY(0);
+    .navbar-dark .navbar-nav .nav-link::after {
+        content: "";
+        position: absolute;
+        bottom: 2px;
+        left: 1rem;
+        width: 0;
+        height: 2px;
+        background: var(--primary-soft);
+        transition: var(--transition);
+    }
+    .navbar-dark .navbar-nav .nav-link:hover::after,
+    .navbar-dark .navbar-nav .nav-link.active::after {
+        width: calc(100% - 2rem);
     }
 }
 
-/* =========================
-   SECTION
-========================= */
-.section {
-    width: 85%;
-    margin: 60px auto;
-    padding: 30px;
-    background: var(--card);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
+/* ==============================================================================
+   HERO SECTION & ANIMASI LOGO
+   ========================================================================== */
+.hero-section {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero-section img {
+    animation: floatAnimation 4s ease-in-out infinite;
     transition: var(--transition);
 }
 
-.section:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-md);
+.hero-section img:hover {
+    transform: scale(1.05);
 }
 
-h2 {
-    color: var(--primary-dark);
-    text-align: center;
-    margin-bottom: 20px;
+@keyframes floatAnimation {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-12px); }
+    100% { transform: translateY(0px); }
 }
 
-/* =========================
-   GRID SYSTEM
-========================= */
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: 15px;
-}
-
-.gallery-grid,
-.anggota-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-/* =========================
-   COMPONENTS
-========================= */
-
-/* CARD */
-.card{
-    border:none;
-    border-radius:15px;
-    overflow:hidden;
-    transition:.3s;
-    
-}
-
-.card:hover{
-    transform:translateY(-6px);
-    box-shadow:0 12px 25px rgba(0,0,0,.15);
-}
-/* GALLERY */
-.gallery-item {
-    background: var(--card);
+/* ==============================================================================
+   COMPONENTS (Cards & Interactivity)
+   ========================================================================== */
+.card {
+    border: none;
+    background-color: var(--card);
     border-radius: var(--radius-md);
     overflow: hidden;
     transition: var(--transition);
 }
 
-.gallery-img {
-    width: 100%;
-    height: 180px;
+/* Efek Angkat Kartu saat Hover */
+.hover-top:hover {
+    transform: translateY(-6px) !important;
+    box-shadow: var(--shadow-md) !important;
+}
+
+.card-img-top {
+    height: 240px;
     object-fit: cover;
+    transition: transform 0.5s ease;
 }
 
-.caption {
-    padding: 12px;
-    text-align: center;
-    color: var(--primary-dark);
+.card:hover .card-img-top {
+    transform: scale(1.06);
 }
 
-/* ANGGOTA */
-.anggota-card {
-    background: var(--card);
-    padding: 20px;
-    text-align: center;
-    border-radius: var(--radius-md);
+.badge.bg-success {
+    background-color: var(--primary) !important;
+}
+
+.btn-success {
+    background-color: var(--primary) !important;
+    border: none;
     transition: var(--transition);
 }
 
-.anggota-card img {
-    width: 90px;
-    height: 90px;
-    border-radius: 50%;
-    object-fit: cover;
+.btn-success:hover {
+    background-color: var(--primary-dark) !important;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(27, 77, 34, 0.3);
 }
 
-/* =========================
-   BUTTON
-========================= */
-.btn {
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: var(--radius-md);
-    background: var(--primary);
-    color: white;
-    text-decoration: none;
-    transition: var(--transition);
-}
-
-.btn{
-
-transition:.3s;
-
-}
-
-.btn:hover{
-
-transform:translateY(-3px);
-
-}
-
-/* =========================
-   UTILITIES
-========================= */
+/* ==============================================================================
+   NATIVE UTILITIES (Loader & Progress)
+   ========================================================================== */
 #progress-bar {
     position: fixed;
     top: 0;
     left: 0;
     height: 4px;
     width: 0%;
-    background: var(--primary);
-    z-index: 9999;
+    background: var(--primary-light);
+    z-index: 1051;
 }
 
 #loader {
@@ -278,190 +162,119 @@ transform:translateY(-3px);
 }
 
 .spinner {
-    width: 50px;
-    height: 50px;
-    border: 5px solid white;
-    border-top: 5px solid var(--primary);
+    width: 45px;
+    height: 45px;
+    border: 4px solid rgba(255, 255, 255, 0.2);
+    border-top: 4px solid var(--primary-light);
     border-radius: 50%;
-    animation: spin 1s linear infinite;
+    animation: spin 0.8s linear infinite;
 }
 
 @keyframes spin {
+    to { transform: rotate(360deg); }
+}
+
+/* ==============================================================================
+   ANIMASI INTRO (AOS Fallback)
+   ========================================================================== */
+.fade-up {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: nativeFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+.delay-1 { animation-delay: 0.15s; }
+.delay-2 { animation-delay: 0.3s; }
+.delay-3 { animation-delay: 0.45s; }
+
+@keyframes nativeFadeUp {
     to {
-        transform: rotate(360deg);
+        opacity: 1;
+        transform: translateY(0);
     }
 }
 
-/* =========================
-   DARK MODE
-========================= */
+/* ==============================================================================
+   OPTIMASI KHUSUS TAMPILAN HP (Mobile Breakpoint)
+   ========================================================================== */
+@media (max-width: 991.98px) {
+    /* Menyesuaikan jarak padding atas halaman karena tinggi navbar mobile berbeda */
+    main {
+        padding-top: 70px !important;
+    }
+    
+    /* Optimasi ukuran teks di Hero Section agar tidak kebesaran di layar HP */
+    .hero-section h1 {
+        font-size: 2.2rem !important;
+    }
+    
+    .hero-section h4 {
+        font-size: 1rem !important;
+    }
+    
+    .hero-section p {
+        font-size: 0.95rem !important;
+    }
+
+    /* Mengurangi padding section agar konten tidak terlalu sempit di layar HP */
+    .card-body.p-5 {
+        padding: 2rem !important;
+    }
+    
+    /* Menjaga rasio gambar kartu di mobile agar tetap simetris */
+    .card-img-top {
+        height: 200px;
+    }
+}
+
+/* ==============================================================================
+   DARK MODE COMPATIBILITY
+   ========================================================================== */
 body.dark-mode {
-    background: var(--dark-bg);
+    background-color: var(--dark-bg);
     color: var(--dark-text);
 }
 
-body.dark-mode .section {
-    background: var(--dark-card);
+body.dark-mode .card,
+body.dark-mode .bg-white {
+    background-color: var(--dark-card) !important;
+    color: var(--dark-text);
 }
 
-body.dark-mode .card {
-    background: #2c2c2c;
+body.dark-mode .text-dark {
+    color: #ffffff !important;
 }
 
-body.dark-mode footer {
-    background: #000;
+body.dark-mode .text-secondary,
+body.dark-mode .text-muted {
+    color: #94a3b8 !important;
 }
 
-/* =========================
-   FOOTER
-========================= */
-footer {
-    text-align: center;
-    padding: 25px;
-    background: var(--primary-dark);
-    color: white;
-    margin-top: 50px;
-}
-
-/* ===================================
-   HERO SECTION
-=================================== */
-
-.hero-section{
-    min-height:100vh;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-        linear-gradient(
-            rgba(0,0,0,.55),
-            rgba(0,0,0,.55)
-        ),
-        url("/static/images/alam.jpg");
-
-    background-size:cover;
-    background-position:center;
-    background-attachment:fixed;
-
-    color:#fff;
-
-    position:relative;
-}
-.hero-section img{
-
-    animation:float 3s ease-in-out infinite;
-
-    transition:.3s;
-
-}
-
-.hero-section img:hover{
-
-    transform:scale(1.05);
-
-}
-/* =========================
-   RESPONSIVE MOBILE
-========================= */
-@media (max-width: 768px) {
-
-    /* Navbar */
-    .navbar {
-        flex-direction: column;
-        padding: 15px 20px;
-    }
-
-    .navbar ul {
-        flex-direction: column;
-        width: 100%;
-        gap: 10px;
-        margin-top: 10px;
-        text-align: center;
-    }
-
-    /* Hero */
-    .hero-section {
-        height: 70vh;
-        padding: 20px;
-        text-align: center;
-    }
-
-    .hero-content h1 {
-        font-size: 2rem;
-    }
-
-    .hero-content p {
-        font-size: 1rem;
-    }
-
-    /* Section */
-    .section {
-        width: 95%;
-        padding: 20px;
-    }
-
-    /* Gallery */
-    .gallery-grid,
-    .anggota-grid {
-        grid-template-columns: 1fr;
-    }
-
-    /* Card */
-    .card {
-        width: 100%;
-    }
-
-    /* Anggota */
-    .anggota-card img {
-        width: 80px;
-        height: 80px;
-    }
-
-    /* Tombol */
-    .btn {
-        width: 100%;
-        text-align: center;
-    }
+body.dark-mode .bg-light {
+    background-color: #17201a !important;
 }
 .fade-up {
     opacity: 0;
-    transform: translateY(30px);
-    animation: fadeUp 0.8s ease forwards;
+    transform: translateY(20px);
+    animation: nativeFadeUp 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards !important;
 }
-
-
-.delay-1 { animation-delay: 0.2s; }
-.delay-2 { animation-delay: 0.4s; }
-.delay-3 { animation-delay: 0.6s; }
-.activity-card {
-    transition: 0.3s ease;
+/* ==============================================================================
+   HERO BACKGROUND FIX (Solusi Error VS Code)
+   ========================================================================== */
+.hero-section {
+    min-height: 95vh;
+    /* Memanggil gambar langsung lewat folder relative static */
+    background: linear-gradient(rgba(15, 36, 19, 0.75), rgba(15, 36, 19, 0.85)), 
+                url('../images/alam.jpg') center/cover no-repeat;
+    background-attachment: fixed;
+    position: relative;
+    overflow: hidden;
 }
-
-.activity-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+/* Efek Hover Premium Global */
+.hover-top {
+    transition: transform 0.3s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s ease !important;
 }
-.hero-section img {
-    animation: float 3s ease-in-out infinite;
-}
-
-@keyframes float {
-    0% { transform: translateY(0); }
-    50% { transform: translateY(-15px); }
-    100% { transform: translateY(0); }
-}
-.card-img-top{
-    height:250px;
-    object-fit:cover;
-    transition:.4s;
-}
-
-.card:hover .card-img-top{
-    transform:scale(1.08);
-}
-
-.card{
-    overflow:hidden;
+.hover-top:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 1rem 3rem rgba(0,0,0,0.08) !important;
 }

@@ -2,284 +2,217 @@
 
 {% block content %}
 
-<!-- HERO SECTION -->
-<section id="home" class="hero-section d-flex align-items-center">
+<!-- ========================= HERO SECTION ========================= -->
+<section id="home" class="hero-section d-flex align-items-center position-relative text-white py-5">
+    <div class="container text-center my-auto position-relative" style="z-index: 3;">
+        
+        <!-- Logo Melayang Premium -->
+        <div class="mb-4 d-inline-block" data-aos="zoom-in">
+            <img src="{{ url_for('static', filename='images/logo.png') }}"
+                 alt="Logo AULITA"
+                 class="img-fluid"
+                 style="width: 150px; filter: drop-shadow(0px 10px 20px rgba(0,0,0,0.35));">
+        </div>
 
-    <div class="container text-center text-white">
-
-        <!-- Logo -->
-        <img src="{{ url_for('static', filename='images/logo.png') }}"
-             alt="Logo AULITA"
-             class="img-fluid mb-4"
-             style="width:180px;">
-
-        <!-- Judul -->
-        <h1 class="display-3 fw-bold fade-up delay-1">
+        <!-- Judul Besar Menawan -->
+        <h1 class="display-2 fw-extrabold mb-1 text-uppercase tracking-wider text-white" style="letter-spacing: 4px; font-weight: 800;">
             Aulita
         </h1>
 
-        <h3 class="mb-3 fade-up delay-2">
+        <!-- Sub-Judul Berwarna Soft -->
+        <p class="mb-4 opacity-75 fw-medium text-uppercase tracking-widest small" style="color: #a3e635; letter-spacing: 3px;">
             Aulad Like To Tadabbur Alam
-        </h3>
-
-        <div class="row justify-content-center">
-    <div class="col-lg-8 col-md-10">
-        <p class="lead fade-up delay-3 text-center">
-            Organisasi santri pecinta alam yang berkomitmen menjaga kelestarian lingkungan serta membangun ukhuwah dan kepemimpinan.
         </p>
-       </div>
-    </div>
 
-        <a href="#tentang" class="btn btn-success btn-lg mt-3 fade-up">
-            Jelajahi
+        <!-- Deskripsi Ringkas -->
+        <div class="row justify-content-center mb-5">
+            <div class="col-lg-7 col-md-9">
+                <p class="lead opacity-90 fs-5 fw-light lh-base text-white-50">
+                    Organisasi santri pecinta alam yang berkomitmen menjaga kelestarian lingkungan serta membangun ukhuwah dan kepemimpinan berlandaskan nilai Islam.
+                </p>
+            </div>
+        </div>
+
+        <!-- Tombol Eksplorasi Kreatif -->
+        <a href="#tentang" class="btn btn-success btn-lg px-5 py-3 rounded-pill shadow-lg border-0 fw-semibold transition-all">
+            <i class="bi bi-compass-fill me-2"></i> Mulai Penjelajahan
         </a>
-
     </div>
-
 </section>
 
-<!-- TENTANG -->
-<!-- TENTANG -->
-<section id="tentang" class="py-5 bg-light">
 
-    <div class="container">
-
+<!-- ========================= TENTANG SECTION ========================= -->
+<section id="tentang" class="py-5 bg-white">
+    <div class="container py-4">
         <div class="row align-items-center g-5">
-
-            <div class="col-lg-6 text-center">
-
-                <img src="{{ url_for('static', filename='images/logo.png') }}"
-                     class="img-fluid"
-                     style="max-width:300px;">
-
+            
+            <div class="col-lg-6 text-center" data-aos="fade-right">
+                <div class="position-relative p-4 bg-light rounded-5 d-inline-block shadow-sm">
+                    <img src="{{ url_for('static', filename='images/logo.png') }}"
+                         class="img-fluid"
+                         style="max-width: 260px;" alt="Aulita">
+                </div>
             </div>
 
-            <div class="col-lg-6">
-
-                <h2 class="fw-bold mb-4">
-                    <i class="bi bi-info-circle-fill text-success"></i>
-                    Tentang Aulita
+            <div class="col-lg-6" data-aos="fade-left">
+                <span class="text-success text-uppercase fw-bold mb-2 d-block small tracking-widest">Profil Singkat</span>
+                <h2 class="fw-bold mb-4 text-dark display-6">
+                    <i class="bi bi-info-circle-fill text-success me-2"></i> Tentang Aulita
                 </h2>
-
-                <p class="lead text-muted">
-                    {{ data.nama }} merupakan organisasi santri pecinta alam
-                    Pondok Pesantren Islam Al Irsyad Tengaran 2 Majalengka
-                    yang bergerak dalam bidang pendidikan kepecintaalaman,
-                    kepemimpinan, dakwah, dan pelestarian lingkungan.
+                <p class="fs-5 text-secondary lh-lg mb-0">
+                    <strong class="text-dark">{{ data.nama }}</strong> merupakan organisasi santri pecinta alam Pondok Pesantren Islam Al Irsyad Tengaran 2 Majalengka yang bergerak dalam bidang pendidikan kepecintaalaman, kepemimpinan, dakwah, dan pelestarian lingkungan hidup.
                 </p>
-
             </div>
 
         </div>
-
     </div>
-
 </section>
 
 
-<!-- VISI -->
-<section id="visi" class="py-5">
-
-   <div class="container-fluid">
-
-        <div class="text-center mb-5">
-
-           <h2 class="fw-bold">
-                <i class="bi bi-tree-fill text-success"></i>
-                Visi
+<!-- ========================= VISI SECTION ========================= -->
+<section id="visi" class="py-5 bg-light">
+    <div class="container py-3">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-success text-uppercase fw-bold mb-2 d-block small tracking-widest">Landasan Utama</span>
+            <h2 class="fw-bold display-6 text-dark">
+                <i class="bi bi-tree-fill text-success me-2"></i> Visi Kami
             </h2>
-
         </div>
 
         <div class="row justify-content-center">
-
-            <div class="col-lg-8">
-
-                <div class="card shadow-lg border-0 rounded-4 fade-up delay-1">
-
-                    <div class="card-body p-5">
-
-                        <p class="fs-5 text-center mb-0">
-                            {{ data.visi }}
+            <div class="col-lg-8" data-aos="zoom-in">
+                <div class="card shadow-sm border-0 rounded-4 text-center bg-white">
+                    <div class="card-body p-5 position-relative">
+                        <i class="bi bi-quote position-absolute text-success opacity-10 fs-1" style="top: 20px; left: 30px;"></i>
+                        <p class="fs-4 text-dark fst-italic lh-base mb-0 fw-medium">
+                            "{{ data.visi }}"
                         </p>
-
                     </div>
-
                 </div>
-
             </div>
-
         </div>
-
     </div>
-
 </section>
 
 
-<!-- MISI -->
-<section id="misi" class="py-5 bg-light">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-
-                <i class="bi bi-bullseye text-success"></i>
-
-                Misi
-
+<!-- ========================= MISI SECTION ========================= -->
+<section id="misi" class="py-5 bg-white">
+    <div class="container py-3">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-success text-uppercase fw-bold mb-2 d-block small tracking-widest">Langkah Kerja</span>
+            <h2 class="fw-bold display-6 text-dark">
+                <i class="bi bi-bullseye text-success me-2"></i> Misi Organisasi
             </h2>
-
         </div>
 
         <div class="row g-4">
-
             {% for item in data.misi %}
-
-            <div class="col-lg-6 fade-up delay-2">
-                <div class="card h-100 border-0 shadow-sm rounded-4">
-
-                    <div class="card-body d-flex">
-
-                        <div class="me-3">
-
-                            <span class="badge bg-success rounded-circle fs-6">
+            <div class="col-lg-6" data-aos="fade-up" data-aos-delay="{{ loop.index }}00">
+                <div class="card h-100 border-0 shadow-sm bg-light hover-top transition-all rounded-4">
+                    <div class="card-body p-4 d-flex align-items-center">
+                        <div class="me-4 flex-shrink-0">
+                            <span class="badge bg-success rounded-circle d-flex align-items-center justify-content-center fs-5 shadow-sm" style="width: 48px; height: 48px; font-weight: 700;">
                                 {{ loop.index }}
                             </span>
-
                         </div>
-
-                        <div>
-
+                        <div class="text-dark fs-5 fw-medium lh-base">
                             {{ item }}
-
                         </div>
-
                     </div>
-
                 </div>
-
             </div>
-
             {% endfor %}
+        </div>
+    </div>
+</section>
 
+
+<!-- ========================= KEGIATAN SECTION ========================= -->
+<!-- ========================= KEGIATAN SECTION ========================= -->
+<section id="kegiatan" class="py-5 bg-light">
+    <div class="container py-3">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-success text-uppercase fw-bold mb-2 d-block small tracking-widest">Eksplorasi Lapangan</span>
+            <h2 class="fw-bold display-6 text-dark">
+                <i class="bi bi-compass-fill text-success me-2"></i> Program Kegiatan
+            </h2>
         </div>
 
+        <div class="row g-4">
+            {% for item in data.kegiatan %}
+            <div class="col-xl-3 col-lg-4 col-sm-6" data-aos="zoom-in" data-aos-delay="{{ loop.index }}00">
+                <div class="card h-100 border-0 shadow-sm text-center hover-top transition-all bg-white rounded-4">
+                    <div class="card-body p-4">
+                        <div class="text-success mb-3">
+                            
+                            <!-- Detektor Ikon Pintar (Pembaruan Ikon Orang-orangan) -->
+                            {% set nama_kegiatan = item | lower %}
+                            
+                            {% if "didik" in nama_kegiatan or "pendidikan" in nama_kegiatan or "diksar" in nama_kegiatan or "dasar" in nama_kegiatan %}
+                                <i class="bi bi-person-fill display-5"></i> <!-- Simbol Gambar Orang-orangan Murni -->
+                            {% elif "gunung" in nama_kegiatan or "daki" in nama_kegiatan or "pendakian" in nama_kegiatan %}
+                                <i class="bi bi-triangle-fill display-5"></i> <!-- Simbol Gunung -->
+                            {% elif "camp" in nama_kegiatan or "kemah" in nama_kegiatan or "camping" in nama_kegiatan or "outdoor" in nama_kegiatan %}
+                                <i class="bi bi-signpost-2-fill display-5"></i> <!-- Simbol Camping & Jelajah -->
+                            {% elif "hijau" in nama_kegiatan or "pohon" in nama_kegiatan or "tanam" in nama_kegiatan or "reboisasi" in nama_kegiatan %}
+                                <i class="bi bi-tree-fill display-5"></i> <!-- Simbol Pohon/Penghijauan -->
+                            {% elif "sosial" in nama_kegiatan or "bakti" in nama_kegiatan or "bantu" in nama_kegiatan %}
+                                <i class="bi bi-heart-fill display-5"></i> <!-- Simbol Hati/Bakti Sosial -->
+                            {% elif "air" in nama_kegiatan or "susur" in nama_kegiatan or "sungai" in nama_kegiatan %}
+                                <i class="bi bi-water display-5"></i> <!-- Simbol Air/Sungai -->
+                            {% elif "dakwah" in nama_kegiatan or "islam" in nama_kegiatan or "santri" in nama_kegiatan %}
+                                <i class="bi bi-book-half display-5"></i> <!-- Simbol Buku/Dakwah -->
+                            {% elif "navigasi" in nama_kegiatan or "peta" in nama_kegiatan or "kompas" in nama_kegiatan %}
+                                <i class="bi bi-compass display-5"></i> <!-- Simbol Kompas Navigasi -->
+                            {% else %}
+                                <i class="bi bi-geo-alt-fill display-5"></i> <!-- Simbol Standar -->
+                            {% endif %}
+                            
+                        </div>
+                        <h5 class="fw-bold text-dark mb-0 fs-5">{{ item }}</h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
     </div>
-
 </section>
 
-
-<!-- KEGIATAN -->
-<!-- KEGIATAN -->
-<section id="kegiatan" class="py-5">
-
-<div class="container">
-
-<div class="text-center mb-5">
-
-<h2 class="fw-bold">
-
-<i class="bi bi-compass-fill text-success"></i>
-
-Kegiatan
-
-</h2>
-
-</div>
-
-<div class="row g-4">
-
-{% for item in data.kegiatan %}
-
-<div class="col-lg-3 col-md-4 col-sm-6 fade-up delay-3">
-
-<div class="card h-100 shadow border-0 rounded-4">
-
-<div class="card-body text-center">
-
-<i class="bi bi-tree-fill text-success display-5 mb-3"></i>
-
-<h5>{{ item }}</h5>
-
-</div>
-
-</div>
-
-</div>
-
-{% endfor %}
-
-</div>
-
-</div>
-
-</section>
-
-<!-- Ikrar -->
-<!-- IKRAR -->
-<section id="ikrar" class="py-5 bg-light">
-
-    <div class="container">
-
-        <div class="text-center mb-5">
-
-            <h2 class="fw-bold">
-                <i class="bi bi-book-fill text-success"></i>
-                Ikrar Aulita
+<!-- ========================= IKRAR SECTION ========================= -->
+<section id="ikrar" class="py-5 bg-white">
+    <div class="container py-3">
+        <div class="text-center mb-5" data-aos="fade-up">
+            <span class="text-success text-uppercase fw-bold mb-2 d-block small tracking-widest">Kode Etik</span>
+            <h2 class="fw-bold display-6 text-dark">
+                <i class="bi bi-book-fill text-success me-2"></i> Ikrar Aulita
             </h2>
-
-            <p class="text-muted">
-                Pedoman dan komitmen setiap anggota AULITA.
+            <p class="text-muted fs-5 mt-2">
+                Prinsip dasar dan sumpah setia setiap kader pecinta alam AULITA.
             </p>
-
         </div>
 
         <div class="row justify-content-center">
-
             <div class="col-lg-8">
-
                 {% for item in data.ikrar %}
-
-                <div class="card border-0 shadow-sm rounded-4 mb-3 fade-up delay-1">
-
-                    <div class="card-body d-flex align-items-center">
-
-                        <!-- Nomor -->
+                <div class="card border-0 shadow-sm mb-3 bg-light rounded-4 hover-top transition-all" data-aos="fade-up">
+                    <div class="card-body p-4 d-flex align-items-center">
                         <div class="flex-shrink-0">
-
-                            <div class="bg-success text-white rounded-circle d-flex justify-content-center align-items-center"
-                                 style="width:50px; height:50px;">
-
-                                <strong>{{ loop.index }}</strong>
-
+                            <div class="bg-success text-white rounded-3 d-flex justify-content-center align-items-center shadow-sm fw-bold"
+                                 style="width: 42px; height: 42px; font-size: 1.1rem;">
+                                {{ loop.index }}
                             </div>
-
                         </div>
-
-                        <!-- Isi -->
                         <div class="ms-4">
-
-                            <p class="mb-0 fs-5">
+                            <p class="mb-0 fs-5 text-dark fw-semibold lh-base">
                                 {{ item }}
                             </p>
-
                         </div>
-
                     </div>
-
                 </div>
-
                 {% endfor %}
-
             </div>
-
         </div>
-
     </div>
-
 </section>
-
 
 {% endblock %}
