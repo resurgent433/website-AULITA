@@ -3,18 +3,46 @@
 {% block content %}
 
 <!-- HERO SECTION -->
-<section id="home" class="hero-section text-center text-white d-flex align-items-center">
+<section id="home" class="hero-section d-flex align-items-center">
 
-    <div class="container position-relative">
+    <div class="container">
 
-        <img src="{{ url_for('static', filename='images/logo.png') }}" width="120" class="mb-3">
+        <div class="row align-items-center">
 
-        <h1 class="display-4 fw-bold">AULITA Majalengka</h1>
-        <p class="lead">Aulad Like To Tadabbur Alam</p>
+            <!-- Teks -->
+            <div class="col-lg-6 text-white">
 
-        <a href="#tentang" class="btn btn-success btn-lg mt-3">
-            Jelajahi
-        </a>
+
+                <h1 class="display-3 fw-bold fade-up delay-1">
+                 AULITA
+                </h1>
+
+                <h3 class="mb-3">
+                    Aulad Like To Tadabbur Alam
+                </h3>
+
+                <p class="lead">
+                    Organisasi santri pecinta alam yang berkomitmen
+                    menjaga kelestarian lingkungan serta membangun
+                    ukhuwah dan kepemimpinan.
+                </p>
+
+                 <a href="#tentang" class="btn btn-success btn-lg me-2">
+                   Jelajahi
+                 </a>
+
+            </div>
+
+            <!-- Gambar -->
+            <div class="col-lg-6 text-center">
+
+                <img src="{{ url_for('static', filename='images/logo.png') }}"
+                     class="img-fluid"
+                     style="max-width:350px;">
+
+            </div>
+
+        </div>
 
     </div>
 
@@ -22,99 +50,246 @@
 
 
 <!-- TENTANG -->
+<!-- TENTANG -->
 <section id="tentang" class="py-5 bg-light">
-    <div class="container text-center">
 
-        <h2 class="fw-bold mb-3">Tentang Kami</h2>
+    <div class="container">
 
-        <p class="text-muted fs-5">
-            {{ data.nama }} Majalengka adalah organisasi santri pecinta alam pesantren Islam Al Irsyad Tengaran 2 Majalengka
-            yang bergerak dalam bidang pendidikan kepecintaalaman, pelestarian lingkungan, dan pembentukan karakter islami.
-        </p>
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6 text-center">
+
+                <img src="{{ url_for('static', filename='images/logo.png') }}"
+                     class="img-fluid"
+                     style="max-width:300px;">
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <h2 class="fw-bold mb-4">
+                    <i class="bi bi-info-circle-fill text-success"></i>
+                    Tentang AULITA
+                </h2>
+
+                <p class="lead text-muted">
+                    {{ data.nama }} merupakan organisasi santri pecinta alam
+                    Pondok Pesantren Islam Al Irsyad Tengaran 2 Majalengka
+                    yang bergerak dalam bidang pendidikan kepecintaalaman,
+                    kepemimpinan, dakwah, dan pelestarian lingkungan.
+                </p>
+
+            </div>
+
+        </div>
 
     </div>
+
 </section>
 
 
 <!-- VISI -->
 <section id="visi" class="py-5">
-    <div class="container text-center">
 
-        <h2 class="fw-bold mb-3">Visi</h2>
+   <div class="container-fluid">
 
-        <div class="card shadow-sm p-4">
-            <p class="fs-5">{{ data.visi }}</p>
+        <div class="text-center mb-5">
+
+           <h2 class="fw-bold">
+                <i class="bi bi-tree-fill text-success"></i>
+                Visi
+            </h2>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                <div class="card shadow-lg border-0 rounded-4 fade-up delay-1">
+
+                    <div class="card-body p-5">
+
+                        <p class="fs-5 text-center mb-0">
+                            {{ data.visi }}
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
+
 </section>
 
 
 <!-- MISI -->
 <section id="misi" class="py-5 bg-light">
+
     <div class="container">
 
-        <h2 class="text-center fw-bold mb-4">Misi</h2>
+        <div class="text-center mb-5">
 
-        <div class="row g-3">
+            <h2 class="fw-bold">
+
+                <i class="bi bi-bullseye text-success"></i>
+
+                Misi
+
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
 
             {% for item in data.misi %}
-            <div class="col-md-6">
-                <div class="card shadow-sm p-3 h-100 border-0">
-                    <p class="mb-0"> {{ item }}</p>
+
+            <div class="col-lg-6 fade-up delay-2">
+                <div class="card h-100 border-0 shadow-sm rounded-4">
+
+                    <div class="card-body d-flex">
+
+                        <div class="me-3">
+
+                            <span class="badge bg-success rounded-circle fs-6">
+                                {{ loop.index }}
+                            </span>
+
+                        </div>
+
+                        <div>
+
+                            {{ item }}
+
+                        </div>
+
+                    </div>
+
                 </div>
+
             </div>
+
             {% endfor %}
 
         </div>
 
     </div>
+
 </section>
 
 
 <!-- KEGIATAN -->
+<!-- KEGIATAN -->
 <section id="kegiatan" class="py-5">
-    <div class="container">
 
-        <h2 class="text-center fw-bold mb-4">Kegiatan</h2>
+<div class="container">
 
-        <div class="row g-3">
+<div class="text-center mb-5">
 
-            {% for item in data.kegiatan %}
-            <div class="col-md-3 col-6">
-                <div class="card text-center shadow-sm p-3 border-0 activity-card">
-                    <p class="mb-0">⛰ {{ item }}</p>
-                </div>
-            </div>
-            {% endfor %}
+<h2 class="fw-bold">
 
-        </div>
+<i class="bi bi-compass-fill text-success"></i>
 
-    </div>
+Kegiatan
+
+</h2>
+
+</div>
+
+<div class="row g-4">
+
+{% for item in data.kegiatan %}
+
+<div class="col-lg-3 col-md-4 col-sm-6 fade-up delay-3">
+
+<div class="card h-100 shadow border-0 rounded-4">
+
+<div class="card-body text-center">
+
+<i class="bi bi-tree-fill text-success display-5 mb-3"></i>
+
+<h5>{{ item }}</h5>
+
+</div>
+
+</div>
+
+</div>
+
+{% endfor %}
+
+</div>
+
+</div>
+
 </section>
 
 <!-- Ikrar -->
-<section id="Ikrar" class="py-5 bg-light">
+<!-- IKRAR -->
+<section id="ikrar" class="py-5 bg-light">
+
     <div class="container">
 
-        <h2 class="text-center fw-bold mb-4">Ikrar AULITA</h2>
+        <div class="text-center mb-5">
 
-        <div class="row g-3 text-start">
+            <h2 class="fw-bold">
+                <i class="bi bi-book-fill text-success"></i>
+                Ikrar AULITA
+            </h2>
 
-            {% for item in data.Ikrar %}
-            <div class="col-md-6 d-flex">
-                
-                <div class="card shadow-sm p-3 w-100 border-0 text-start">
-                    <span class="fw-semibold me-2">{{ loop.index }}.</span>
-                    <p class="mb-0 d-inline">{{ item }}</p>
+            <p class="text-muted">
+                Pedoman dan komitmen setiap anggota AULITA.
+            </p>
+
+        </div>
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-8">
+
+                {% for item in data.ikrar %}
+
+                <div class="card border-0 shadow-sm rounded-4 mb-3 fade-up delay-1">
+
+                    <div class="card-body d-flex align-items-center">
+
+                        <!-- Nomor -->
+                        <div class="flex-shrink-0">
+
+                            <div class="bg-success text-white rounded-circle d-flex justify-content-center align-items-center"
+                                 style="width:50px; height:50px;">
+
+                                <strong>{{ loop.index }}</strong>
+
+                            </div>
+
+                        </div>
+
+                        <!-- Isi -->
+                        <div class="ms-4">
+
+                            <p class="mb-0 fs-5">
+                                {{ item }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
                 </div>
 
+                {% endfor %}
+
             </div>
-            {% endfor %}
 
         </div>
 
     </div>
+
 </section>
 
 

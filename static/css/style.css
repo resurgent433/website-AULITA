@@ -49,7 +49,7 @@ body {
 /* =========================
    NAVBAR
 ========================= */
-.navbar {
+/* .navbar {
     position: fixed;
     top: 0;
     width: 100%;
@@ -61,7 +61,7 @@ body {
     backdrop-filter: blur(8px);
     z-index: 1000;
     transition: 0.4s;
-}
+} */
 
 .navbar.scrolled {
     box-shadow: var(--shadow-md);
@@ -104,14 +104,14 @@ body {
 /* =========================
    HERO
 ========================= */
-.hero-section {
+/* .hero-section {
     height: 100vh;
     background: url("/static/images/alam.jpg") center/cover no-repeat;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-}
+} */
 
 .overlay {
     position: absolute;
@@ -181,20 +181,18 @@ h2 {
 ========================= */
 
 /* CARD */
-.card {
-    background: var(--primary);
-    color: white;
-    padding: 18px;
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-sm);
-    transition: var(--transition);
+.card{
+    border:none;
+    border-radius:15px;
+    overflow:hidden;
+    transition:.3s;
+    
 }
 
-.card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-md);
+.card:hover{
+    transform:translateY(-6px);
+    box-shadow:0 12px 25px rgba(0,0,0,.15);
 }
-
 /* GALLERY */
 .gallery-item {
     background: var(--card);
@@ -244,9 +242,16 @@ h2 {
     transition: var(--transition);
 }
 
-.btn:hover {
-    background: var(--primary-dark);
-    transform: scale(1.05);
+.btn{
+
+transition:.3s;
+
+}
+
+.btn:hover{
+
+transform:translateY(-3px);
+
 }
 
 /* =========================
@@ -316,4 +321,134 @@ footer {
     background: var(--primary-dark);
     color: white;
     margin-top: 50px;
+}
+
+/* ===================================
+   HERO SECTION
+=================================== */
+
+.hero-section{
+    min-height:100vh;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,.55),
+            rgba(0,0,0,.55)
+        ),
+        url("/static/images/alam.jpg");
+
+    background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+
+    color:#fff;
+
+    position:relative;
+}
+.hero-section img{
+
+    animation:float 3s ease-in-out infinite;
+
+    transition:.3s;
+
+}
+
+.hero-section img:hover{
+
+    transform:scale(1.05);
+
+}
+/* =========================
+   RESPONSIVE MOBILE
+========================= */
+@media (max-width: 768px) {
+
+    /* Navbar */
+    .navbar {
+        flex-direction: column;
+        padding: 15px 20px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    /* Hero */
+    .hero-section {
+        height: 70vh;
+        padding: 20px;
+        text-align: center;
+    }
+
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    /* Section */
+    .section {
+        width: 95%;
+        padding: 20px;
+    }
+
+    /* Gallery */
+    .gallery-grid,
+    .anggota-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* Card */
+    .card {
+        width: 100%;
+    }
+
+    /* Anggota */
+    .anggota-card img {
+        width: 80px;
+        height: 80px;
+    }
+
+    /* Tombol */
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+.fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    animation: fadeUp 0.8s ease forwards;
+}
+
+
+.delay-1 { animation-delay: 0.2s; }
+.delay-2 { animation-delay: 0.4s; }
+.delay-3 { animation-delay: 0.6s; }
+.activity-card {
+    transition: 0.3s ease;
+}
+
+.activity-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+.hero-section img {
+    animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
+    100% { transform: translateY(0); }
 }

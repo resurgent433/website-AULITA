@@ -38,10 +38,10 @@ data = {
         "Pendidikan Dasar Anggota"
     ],
 
-    "Ikrar": [
+    "ikrar": [
         "Asas kami Al Quran dan Assunnah dengan pemahaman salaful ummah .",
         "Menjunjung tinggi kebersamaan dan solidaritas.",
-        "Pantangan kami dekstruktif dan anarkis.",
+        "Pantangan kami destruktif dan anarkis.",
         "Selesai."
     ]
     

@@ -93,9 +93,9 @@ document.addEventListener("DOMContentLoaded", () => {
 /* ================================
    DARK MODE TOGGLE
 ================================= */
-function toggleDark() {
-    document.body.classList.toggle("dark-mode");
-}
+// function toggleDark() {
+//     document.body.classList.toggle("dark-mode");
+// }
 
 
 /* ================================
