@@ -1,13 +1,7 @@
 from flask import Flask, render_template
+import os
 
 app = Flask(__name__)
-
-@app.route("/")
-def home():
-    return render_template("index.html")
-
-if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000)
 
 # =========================
 # Data Organisasi AULITA
@@ -62,6 +56,10 @@ def home():
     return render_template("index.html", data=data)
 
 
+@app.route("/sejarah")
+def sejarah():
+    return render_template("sejarah.html")
+
 # =========================
 # Halaman Galeri
 # =========================
@@ -81,10 +79,6 @@ def anggota():
 # =========================
 # Jalankan Server
 # =========================
-if __name__ == "__main__":
-    app.run(debug=True)
-    import os
-
 if __name__ == "__main__":
     port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port)
