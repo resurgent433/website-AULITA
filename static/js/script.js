@@ -193,37 +193,39 @@ window.addEventListener("load", () => {
 
         }, 600); // Durasi tunggu dioptimalkan agar tidak terlalu lama kosong
     }
-    /* ==============================================================================
-       6. PREMIUM LEAF CLICK EFFECT (Efek Daun Jatuh Saat Klik Layar)
+/* ==============================================================================
+       6. PREMIUM LEAF CLICK EFFECT (Efek Daun Jatuh Dioptimalkan untuk HP)
        ========================================================================== */
-    // Array berisi emoji daun atau variasi ikon daun pelengkap tema alam
     const leafTemplates = ['🍁', '🍃', '🍂', '🌱'];
 
     document.addEventListener("click", (e) => {
-        // Abaikan efek klik jika yang diklik adalah tombol, link, atau menu navbar
+        // Abaikan efek klik jika menekan tombol, menu navbar, atau link
         if (e.target.closest('button') || e.target.closest('a') || e.target.closest('.navbar')) {
             return;
         }
 
-        // Membuat 3 partikel daun sekaligus setiap kali klik untuk efek yang lebih hidup
-        for (let i = 0; i < 3; i++) {
+        // Kurangi jumlah partikel di HP (max 2) agar performa tidak drop
+        const isMobile = window.innerWidth < 768;
+        const particleCount = isMobile ? 2 : 3;
+
+        for (let i = 0; i < particleCount; i++) {
             const leaf = document.createElement("span");
-            
-            // Memilih jenis daun secara acak dari template
             leaf.innerText = leafTemplates[Math.floor(Math.random() * leafTemplates.length)];
             
-            // Mengatur properti acak agar arah jatuh daun terlihat alami
-            const randomX = (Math.random() - 0.5) * 60; // Geseran ke kiri atau kanan (pixel)
-            const randomScale = 0.6 + Math.random() * 0.8; // Variasi ukuran daun
-            const randomDuration = 1 + Math.random() * 1.5; // Variasi kecepatan jatuh (detik)
+            const randomX = (Math.random() - 0.5) * 40; 
+            const randomScale = isMobile ? (0.5 + Math.random() * 0.4) : (0.6 + Math.random() * 0.8); 
+            const randomDuration = 1 + Math.random() * 1.2; 
 
-            // Inject CSS styling premium langsung ke partikel daun
+            // PENGAMAN HP: Mencegah daun muncul terlalu mepet ke ujung kanan layar
+            const maxSafeLeft = window.innerWidth - 40;
+            const safePageX = Math.min(e.pageX, maxSafeLeft);
+
             Object.assign(leaf.style, {
                 position: "absolute",
                 top: `${e.pageY}px`,
-                left: `${e.pageX}px`,
-                pointerEvents: "none", // Agar tidak mengganggu klik elemen di bawahnya
-                fontSize: "20px",
+                left: `${safePageX}px`,
+                pointerEvents: "none", 
+                fontSize: isMobile ? "16px" : "20px",
                 zIndex: "9999",
                 transform: `scale(${randomScale})`,
                 transition: `transform ${randomDuration}s cubic-bezier(0.1, 0.25, 0.1, 1), 
@@ -235,15 +237,15 @@ window.addEventListener("load", () => {
 
             document.body.appendChild(leaf);
 
-            // Memicu animasi meluncur, berputar, dan memudar setelah elemen masuk ke DOM
             requestAnimationFrame(() => {
-                leaf.style.top = `${e.pageY + 120 + Math.random() * 50}px`;
-                leaf.style.left = `${e.pageX + randomX}px`;
-                leaf.style.transform = `scale(${randomScale}) rotate(${Math.random() * 360}deg)`;
+                leaf.style.top = `${e.pageY + 100 + Math.random() * 30}px`;
+                // PENGAMAN HP: Batasi geseran horizontal daun agar tidak menjebol pembatas layar
+                const finalLeft = safePageX + randomX;
+                leaf.style.left = `${Math.max(10, Math.min(finalLeft, window.innerWidth - 30))}px`;
+                leaf.style.transform = `scale(${randomScale}) rotate(${Math.random() * 180}deg)`;
                 leaf.style.opacity = "0";
             });
 
-            // Hapus elemen daun secara otomatis dari memori setelah animasi selesai
             setTimeout(() => {
                 leaf.remove();
             }, randomDuration * 1000);
@@ -330,8 +332,8 @@ window.addEventListener("load", () => {
         }
     }
 
-    // Kemunculan perdana kawanan burung 4 detik setelah website terbuka
-    setTimeout(spawnBirdFlock, 4000);
+    // Kemunculan perdana kawanan burung 3 detik setelah website terbuka
+    setTimeout(spawnBirdFlock, 3000);
 
     // Kirim kawanan burung baru secara berkala setiap 18 hingga 25 detik
     setInterval(spawnBirdFlock, 22000);

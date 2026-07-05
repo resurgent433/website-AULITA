@@ -278,3 +278,36 @@ body.dark-mode .bg-light {
     transform: translateY(-6px);
     box-shadow: 0 1rem 3rem rgba(0,0,0,0.08) !important;
 }
+/* ==============================================================================
+   PENGAMAN LAYAR HP (ANTI-HORIZONTAL SCROLL & OVERFLOW)
+   ========================================================================== */
+html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden; /* Mengunci total agar web tidak bisa bergeser ke kanan/kiri secara rusak */
+    position: relative;
+}
+
+/* Memastikan elemen baris Bootstrap tidak menghasilkan sisa margin negatif di layar kecil */
+.row {
+    --bs-gutter-x: 1.5rem;
+    margin-right: 0 !important;
+    margin-left: 0 !important;
+}
+
+/* Mengoptimalkan kenyamanan jarak teks header saat dibuka di HP */
+@media (max-width: 768px) {
+    .display-2 {
+        font-size: 2.8rem !important; /* Mengecilkan judul AULITA di HP agar tidak patah berantakan */
+    }
+    .display-3 {
+        font-size: 2.5rem !important;
+    }
+    .display-5 {
+        font-size: 1.8rem !important;
+    }
+    section {
+        padding-top: 3.5rem !important;
+        padding-bottom: 3.5rem !important;
+    }
+}
