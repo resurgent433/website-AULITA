@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="page-title">Struktur Anggota AULITA</h2>
+
+<section class="section">
+
+    <p style="text-align:center; color:#555; margin-bottom:20px;">
+        Berikut adalah struktur anggota organisasi AULITA yang berperan dalam kegiatan pecinta alam dan sosial.
+    </p>
+
+    <div class="anggota-grid">
+
+        <!-- KETUA -->
+        <div class="anggota-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h3>Nama Ketua</h3>
+            <p class="jabatan">Ketua Umum</p>
+        </div>
+
+        <!-- WAKIL -->
+        <div class="anggota-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h3>Nama Wakil</h3>
+            <p class="jabatan">Wakil Ketua</p>
+        </div>
+
+        <!-- SEKRETARIS -->
+        <div class="anggota-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h3>Nama Sekretaris</h3>
+            <p class="jabatan">Sekretaris</p>
+        </div>
+
+        <!-- BENDAHARA -->
+        <div class="anggota-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h3>Nama Bendahara</h3>
+            <p class="jabatan">Bendahara</p>
+        </div>
+
+        <!-- ANGGOTA LAIN -->
+        <div class="anggota-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h3>Anggota 1</h3>
+            <p class="jabatan">Anggota</p>
+        </div>
+
+        <div class="anggota-card">
+            <img src="{{ url_for('static', filename='images/logo.png') }}">
+            <h3>Anggota 2</h3>
+            <p class="jabatan">Anggota</p>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

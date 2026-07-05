@@ -1,0 +1,121 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section id="home" class="hero-section text-center text-white d-flex align-items-center">
+
+    <div class="container position-relative">
+
+        <img src="{{ url_for('static', filename='images/logo.png') }}" width="120" class="mb-3">
+
+        <h1 class="display-4 fw-bold">AULITA Majalengka</h1>
+        <p class="lead">Aulad Like To Tadabbur Alam</p>
+
+        <a href="#tentang" class="btn btn-success btn-lg mt-3">
+            Jelajahi
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- TENTANG -->
+<section id="tentang" class="py-5 bg-light">
+    <div class="container text-center">
+
+        <h2 class="fw-bold mb-3">Tentang Kami</h2>
+
+        <p class="text-muted fs-5">
+            {{ data.nama }} Majalengka adalah organisasi santri pecinta alam pesantren Islam Al Irsyad Tengaran 2 Majalengka
+            yang bergerak dalam bidang pendidikan kepecintaalaman, pelestarian lingkungan, dan pembentukan karakter islami.
+        </p>
+
+    </div>
+</section>
+
+
+<!-- VISI -->
+<section id="visi" class="py-5">
+    <div class="container text-center">
+
+        <h2 class="fw-bold mb-3">Visi</h2>
+
+        <div class="card shadow-sm p-4">
+            <p class="fs-5">{{ data.visi }}</p>
+        </div>
+
+    </div>
+</section>
+
+
+<!-- MISI -->
+<section id="misi" class="py-5 bg-light">
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-4">Misi</h2>
+
+        <div class="row g-3">
+
+            {% for item in data.misi %}
+            <div class="col-md-6">
+                <div class="card shadow-sm p-3 h-100 border-0">
+                    <p class="mb-0"> {{ item }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- KEGIATAN -->
+<section id="kegiatan" class="py-5">
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-4">Kegiatan</h2>
+
+        <div class="row g-3">
+
+            {% for item in data.kegiatan %}
+            <div class="col-md-3 col-6">
+                <div class="card text-center shadow-sm p-3 border-0 activity-card">
+                    <p class="mb-0">⛰ {{ item }}</p>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Ikrar -->
+<section id="Ikrar" class="py-5 bg-light">
+    <div class="container">
+
+        <h2 class="text-center fw-bold mb-4">Ikrar AULITA</h2>
+
+        <div class="row g-3 text-start">
+
+            {% for item in data.Ikrar %}
+            <div class="col-md-6 d-flex">
+                
+                <div class="card shadow-sm p-3 w-100 border-0 text-start">
+                    <span class="fw-semibold me-2">{{ loop.index }}.</span>
+                    <p class="mb-0 d-inline">{{ item }}</p>
+                </div>
+
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+{% endblock %}

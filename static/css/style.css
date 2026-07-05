@@ -1,0 +1,319 @@
+
+/* =========================
+   DESIGN SYSTEM VARIABLES
+========================= */
+:root {
+    --primary: #2ecc71;
+    --primary-dark: #1b5e20;
+    --primary-soft: #a5d6a7;
+
+    --bg: #eef6ef;
+    --card: #ffffff;
+    --text: #1b1b1b;
+    --muted: #666;
+
+    --dark-bg: #121212;
+    --dark-card: #1e1e1e;
+    --dark-text: #e0e0e0;
+
+    --shadow-sm: 0 4px 10px rgba(0,0,0,0.08);
+    --shadow-md: 0 8px 20px rgba(0,0,0,0.12);
+
+    --radius-sm: 10px;
+    --radius-md: 15px;
+    --radius-lg: 20px;
+
+    --transition: 0.3s ease;
+}
+
+/* =========================
+   BASE RESET
+========================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--bg);
+    color: var(--text);
+    transition: var(--transition);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 12px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(27, 94, 32, 0.95);
+    backdrop-filter: blur(8px);
+    z-index: 1000;
+    transition: 0.4s;
+}
+
+.navbar.scrolled {
+    box-shadow: var(--shadow-md);
+}
+
+.navbar ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+    transition: var(--transition);
+}
+
+.navbar ul li a:hover,
+.navbar ul li a.active {
+    color: var(--primary-soft);
+}
+
+.navbar ul li a::after {
+    content: "";
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: var(--primary-soft);
+    transition: var(--transition);
+}
+
+.navbar ul li a:hover::after,
+.navbar ul li a.active::after {
+    width: 100%;
+}
+
+/* =========================
+   HERO
+========================= */
+.hero-section {
+    height: 100vh;
+    background: url("/static/images/alam.jpg") center/cover no-repeat;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0,0,0,0.55);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: fadeUp 1s ease;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* =========================
+   SECTION
+========================= */
+.section {
+    width: 85%;
+    margin: 60px auto;
+    padding: 30px;
+    background: var(--card);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.section:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-md);
+}
+
+h2 {
+    color: var(--primary-dark);
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+/* =========================
+   GRID SYSTEM
+========================= */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 15px;
+}
+
+.gallery-grid,
+.anggota-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+/* =========================
+   COMPONENTS
+========================= */
+
+/* CARD */
+.card {
+    background: var(--primary);
+    color: white;
+    padding: 18px;
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+}
+
+/* GALLERY */
+.gallery-item {
+    background: var(--card);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.gallery-img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+}
+
+.caption {
+    padding: 12px;
+    text-align: center;
+    color: var(--primary-dark);
+}
+
+/* ANGGOTA */
+.anggota-card {
+    background: var(--card);
+    padding: 20px;
+    text-align: center;
+    border-radius: var(--radius-md);
+    transition: var(--transition);
+}
+
+.anggota-card img {
+    width: 90px;
+    height: 90px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+/* =========================
+   BUTTON
+========================= */
+.btn {
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: white;
+    text-decoration: none;
+    transition: var(--transition);
+}
+
+.btn:hover {
+    background: var(--primary-dark);
+    transform: scale(1.05);
+}
+
+/* =========================
+   UTILITIES
+========================= */
+#progress-bar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    width: 0%;
+    background: var(--primary);
+    z-index: 9999;
+}
+
+#loader {
+    position: fixed;
+    inset: 0;
+    background: var(--primary-dark);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+}
+
+.spinner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid white;
+    border-top: 5px solid var(--primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* =========================
+   DARK MODE
+========================= */
+body.dark-mode {
+    background: var(--dark-bg);
+    color: var(--dark-text);
+}
+
+body.dark-mode .section {
+    background: var(--dark-card);
+}
+
+body.dark-mode .card {
+    background: #2c2c2c;
+}
+
+body.dark-mode footer {
+    background: #000;
+}
+
+/* =========================
+   FOOTER
+========================= */
+footer {
+    text-align: center;
+    padding: 25px;
+    background: var(--primary-dark);
+    color: white;
+    margin-top: 50px;
+}

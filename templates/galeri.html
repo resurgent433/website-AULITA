@@ -1,0 +1,55 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<h2 class="page-title">Galeri Kegiatan AULITA</h2>
+
+<section class="section">
+
+    <p style="text-align:center; margin-bottom:20px; color:#555;">
+        Dokumentasi kegiatan organisasi AULITA dalam menjaga alam dan membangun kebersamaan.
+    </p>
+
+    <div class="gallery-grid">
+
+        <!-- FOTO 1 -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
+            <div class="caption">Pendakian Gunung</div>
+        </div>
+
+        <!-- FOTO 2 -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
+            <div class="caption">Camping Bersama</div>
+        </div>
+
+        <!-- FOTO 3 -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
+            <div class="caption">Bakti Sosial</div>
+        </div>
+
+        <!-- FOTO 4 -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
+            <div class="caption">Penghijauan</div>
+        </div>
+
+        <!-- FOTO 5 -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
+            <div class="caption">Pelatihan Survival</div>
+        </div>
+
+        <!-- FOTO 6 -->
+        <div class="gallery-item">
+            <img src="{{ url_for('static', filename='images/alam.jpg') }}" class="gallery-img">
+            <div class="caption">Navigasi Darat</div>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}
