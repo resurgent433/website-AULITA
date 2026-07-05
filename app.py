@@ -113,6 +113,11 @@ from flask import send_from_directory
 def google_verification():
     return send_from_directory("static", "google4e8ece12ad60ea32.html")
 
+from flask import send_from_directory
+
+@app.route("/sitemap.xml")
+def sitemap():
+    return send_from_directory("static", "sitemap.xml")
 # =========================
 # Jalankan Server
 # =========================
